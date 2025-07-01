@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    height: 100vh; /* Set height to 100% of the viewport */
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px; /* Only horizontal padding */
+    height: 100%; /* Set height to 100% */
+}
+
+h2 {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: orange;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 0; /* No bottom margin */
+}
+
+.content {
+    display: flex;
+    margin-top: 60px;  /* Adjusted margin to account for the header */
+    height: calc(100% - 60px); /* Adjust the height to fit the content */
+}
+
+.form-container {
+    width: 24%; /* Decreased width by a small percent */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center the content horizontally */
+    justify-content: flex-start; /* Align content to the top */
+}
+
+label {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="hidden"], button {
+    width: 100%;
+    height: 30px; /* Increase the height of input fields */
+    margin: 10px 0;  /* Center the input fields */
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;  
+    gap: 10px;
+}
+
+button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkorange;
+}
+
+.hidden {
+    display: none;
+}
+
+.image-container {
+    width: 75%;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#videoContainer, #previewContainer, #displayContainer {
+    margin-bottom: 20px;
+    width: 500px; /* Set a fixed width */
+    height: 200px; /* Set a default height */
+    position: relative;
+}
+
+#videoContainer video, #previewCanvas, #displayContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#previewContainer {
+    padding: 20px; 
+    position: relative;
+}
+
+#previewContainer button {
+    width: auto;
+    position: absolute;
+    bottom: 10px;
+}
+
+#retakeButton {
+    left: 20px; /* Position towards the left */
+}
+
+#saveButton {
+    right: 20px; /* Position towards the right */
+}
+
+.image-container button {
+    width: auto;
+    position: absolute;
+    bottom: 10px;
+}
+
+#captureButton {
+    left: 20px;
+}
+
+#reset {
+    right: 140px;
+}
+
+input[type="email"] {
+    width: 100%;
+    height: 30px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+    white-space: nowrap;
+}
