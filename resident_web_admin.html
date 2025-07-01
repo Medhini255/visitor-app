@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resident's</title>
+    <style>
+    header {
+        background-color: orange;
+        color: white;
+        padding: 1px 0;
+        text-align: center;
+    }
+    .container {
+        flex-direction: column;
+        align-items: center;
+        margin: 50px;
+    }
+    .button-container {
+    display: flex;
+    justify-content: space-between;  
+    gap: 10px;
+}
+.image-container {
+    width: 75%;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#videoContainer, #previewContainer, #displayContainer {
+    margin-bottom: 20px;
+    width: 500px; /* Set a fixed width */
+    height: 200px; /* Set a default height */
+    position: relative;
+}
+
+#videoContainer video, #previewCanvas, #displayContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#previewContainer {
+    padding: 20px; 
+    position: relative;
+}
+
+#previewContainer button {
+    width: auto;
+    position: absolute;
+    bottom: 10px;
+}
+
+#retakeButton {
+    left: 20px; /* Position towards the left */
+}
+
+#saveButton {
+    right: 20px; /* Position towards the right */
+}
+
+.image-container button {
+    width: auto;
+    position: absolute;
+    bottom: 10px;
+}
+#captureButton {
+    left: 20px;
+}
+
+#reset {
+    right: 140px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Resident Details</h1>
+    </header>
+    <div class="container">
+        
+        {% if message %}
+            <p style="color: green;">{{ message }}</p>
+        {% endif %}
+        
+    <form action="/resident-details" method="POST">
+        <div class="center">
+        <label for="flat_no">Apartment Number:</label>
+        <input type="text" id="flat_no" name="flat_no">
+        <br><br>
+        <label for="res_name">Resident Name:</label>
+        <input type="text" id="res_name" name="res_name">
+        <br><br>
+        <label for="res_no">Resident Number:</label>
+        <input type="text" id="res_no" name="res_no">
+        <br><br>
+        <input type="hidden" id="imageData" name="imageData">
+                <input type="hidden" name="is_update" id="is_update" value="false">
+                 <div class="button-container">
+                  <button type="submit" form="captureForm" class="save-btn">Submit</button>
+                  </div>
+    </div>
+        <input type="submit" value="Submit">
+    </div> 
+    <div class="image-container">
+              <div id="videoContainer">
+                  <video id="video" autoplay></video>
+                  <button id="captureButton">Capture Image</button>
+              </div>
+              <div id="previewContainer" class="hidden">
+                  <canvas id="previewCanvas"></canvas>
+                  <button id="retakeButton">Retake</button>
+                  <button id="saveButton">Save Image</button>
+              </div>
+              <div id="displayContainer" class="hidden">
+                  <h4>Captured Image</h4>
+                  <img id="capturedImage" src="" alt="Captured Image">
+              </div>
+              </div>
+    </form>
+    
+    </div>
+    
+    <a href="{{ url_for('home') }}" class="btn btn-primary"style="display: block; margin: 0 auto; text-align: center;">Back</a>
+</body>
+</html>

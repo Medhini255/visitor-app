@@ -1,0 +1,27 @@
+<head>
+  <style>
+    @media print {
+      .no-print {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<h2 style="text-align: center; background-color: orange; color: white; padding: 10px;">Visitor Pass</h2>
+
+<p><strong>Name:</strong> {{ visitor.Visit_Name }}</p>
+<p><strong>Flat:</strong> {{ visitor.Visit_Flat_Number }}</p>
+<p><strong>Visit ID:</strong> {{ visitor.Visit_Id }}</p>
+<p><strong>Phone Number:</strong> {{ visitor.Visit_Ph_Number }}</p>
+
+{% if visitor.Image %}
+    <p><strong>Image:</strong></p>
+    <img src="{{ url_for('static', filename=visitor.Image.split('static/')[-1]) }}" alt="Visitor Image" style="max-width: 200px; border: 1px solid #ccc; margin-top: 10px;">
+{% else %}
+    <p>No image available.</p>
+{% endif %}
+
+<br>
+<button class="no-print" onclick="window.print()" style="margin-top: 20px;">Print Visitor Pass</button>
+</body>

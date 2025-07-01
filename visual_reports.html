@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Data Visualizations</title>
+    <style>
+        header {
+            background-color: orange;
+            color: white;
+            padding: 1px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>Visitor Data Visualizations</h1>
+</header>
+    <h2>Most Visited Flats</h2>
+    <img src="{{ url_for('static', filename='visualizations/most_visited_flats.png') }}?v=1" alt="Most Visited Flats">
+    
+    <h2>Most Visited Hours</h2>
+    <img src="{{ url_for('static', filename='visualizations/most_visited_hours.png') }}?v=1" alt="Most Visited Hours">
+    
+    <h2>Most Used Delivery Company</h2>
+    <img src="{{ url_for('static', filename='visualizations/most_used_delivery_company.png') }}?v=1" alt="Most Used Delivery Company">
+    
+    <h2>Repeated Delivery Boys</h2>
+    <img src="{{ url_for('static', filename='visualizations/repeated_delivery_boy.png') }}?v=1" alt="Repeated Delivery Boys">
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recent Visitors</title>
+    <style>
+        .visitor-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .visitor-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid orange;
+            border-radius: 6px;
+        }
+        .visitor-details {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center; color:orange;">Recent Visitors</h2>
+
+    {% for visitor in visitors %}
+    <div class="visitor-card">
+        <img class="visitor-image" src="{{ url_for('static', filename=visitor.Image.split('static/')[-1]) }}" alt="Visitor Image">
+        <div class="visitor-details">
+            <p><strong>Name:</strong> {{ visitor.Visit_Name }}</p>
+            <p><strong>Phone:</strong> {{ visitor.Visit_Ph_Number }}</p>
+            <p><strong>Flat:</strong> {{ visitor.Visit_Flat_Number }}</p>
+            <p><strong>Type:</strong> {{ visitor.Visit_Type }}</p>
+        </div>
+    </div>
+    {% else %}
+        <p style="text-align:center;">No visitors found.</p>
+    {% endfor %}
+</body>
+</html>
