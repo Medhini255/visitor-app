@@ -8,7 +8,7 @@ import json
 import requests
 import re
 
-app = Flask(__name__, template_folder=r'C:\Users\medhi\visitor-app\templates')
+app = Flask(__name__, template_folder=os.path.join(os.path.dirname(__file__), 'templates'))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://medhi:medhu@localhost/visitor_tracking'
 # app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:" + "Meena@123" + "@localhost/visit"
 
